@@ -15,7 +15,7 @@ api = Api(app)
 
 class Library(Resource):
     def get(self):
-        query = ("select Book_Name, Author, Image_Url, Book_Url from Books")
+        query = ("select BID, Book_Name, Author, Image_Url, Book_Url from Books")
         cursor = cnx.cursor(dictionary=True)
 
         cursor.execute(query)
