@@ -24,7 +24,17 @@ class Library(Resource):
         return json.loads(json.dumps(result))
 
 
-api.add_resource(Library, "/library/")
+class Synopsis(Resource):
+    def get(self, book_id):
+        query = ("select Synopsis from Books where BID = %s")
+        cursor = cnx.cursor(dictionary=True)
+        cursor.execute(query, (book_id,))
+        result = cursor.fetchall()
+        cursor.close()
+        return json.loads(json.dumps(result))
+
+api.add_resource(Library, "/library")
+api.add_resource(Synopsis, "/library/synopsis/<int:book_id>")
 
 
 if __name__ == "__main__":
