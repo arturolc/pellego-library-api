@@ -4,7 +4,7 @@ Arturo Lara-Coronado
 Library API
 """
 #!/usr/bin/python3
-from flask import Flask, request
+from flask import Flask
 from flask_restful import Resource, Api
 import mysql.connector
 import json
@@ -35,7 +35,6 @@ class Synopsis(Resource):
 
 api.add_resource(Library, "/library")
 api.add_resource(Synopsis, "/library/synopsis/<int:book_id>")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
