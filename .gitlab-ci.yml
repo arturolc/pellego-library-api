@@ -4,7 +4,6 @@ stages:
 docker-build:
   image: docker:latest
   stage: build
-  privileged: true
   services:
     - docker:dind
   before_script:
