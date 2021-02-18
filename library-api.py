@@ -3,11 +3,11 @@ Arturo Lara-Coronado
 
 Library API
 """
-#!/usr/bin/python3
+import mysql.connector
 from flask import Flask
 from flask_restful import Resource, Api
-import mysql.connector
 import json
+
 
 cnx = mysql.connector.connect(user='admin', password='capstone', host='pellego-db.cdkdcwucys6e.us-west-2.rds.amazonaws.com', database='pellego_database')
 app = Flask(__name__)
