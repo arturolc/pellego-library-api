@@ -1,5 +1,5 @@
 # Use the Python3.7.10 image
-FROM python:3.7.10-stretch
+FROM python:latest
 
 # Set the working directory to /app
 WORKDIR /app
