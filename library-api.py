@@ -13,6 +13,11 @@ cnx = mysql.connector.connect(user='admin', password='capstone', host='pellego-d
 app = Flask(__name__)
 api = Api(app)
 
+cur = cnx.cursor()
+cur.execute("Select * from Books")
+
+print(cur.fetchall())
+
 class Library(Resource):
     def get(self):
         query = ("select BID, Book_Name, Author, Image_Url, Book_Url from Books")
