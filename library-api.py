@@ -9,29 +9,31 @@ from flask_restful import Resource, Api
 import mysql.connector
 import json
 
-cnx = mysql.connector.connect(user='admin', password='capstone', host='pellego-db.cdkdcwucys6e.us-west-2.rds.amazonaws.com', database='pellego_database')
+#cnx = mysql.connector.connect(user='admin', password='capstone', host='pellego-db.cdkdcwucys6e.us-west-2.rds.amazonaws.com', database='pellego_database')
 app = Flask(__name__)
 api = Api(app)
 
 class Library(Resource):
     def get(self):
-        query = ("select BID, Book_Name, Author, Image_Url, Book_Url from Books")
-        cursor = cnx.cursor(dictionary=True)
+        # query = ("select BID, Book_Name, Author, Image_Url, Book_Url from Books")
+        # cursor = cnx.cursor(dictionary=True)
 
-        cursor.execute(query)
-        result = cursor.fetchall()
-        cursor.close()
-        return json.loads(json.dumps(result))
+        # cursor.execute(query)
+        # result = cursor.fetchall()
+        # cursor.close()
+        # return json.loads(json.dumps(result))
+        return 0;
 
 
 class Synopsis(Resource):
     def get(self, book_id):
-        query = ("select Synopsis from Books where BID = %s")
-        cursor = cnx.cursor(dictionary=True)
-        cursor.execute(query, (book_id,))
-        result = cursor.fetchall()
-        cursor.close()
-        return json.loads(json.dumps(result))
+        # query = ("select Synopsis from Books where BID = %s")
+        # cursor = cnx.cursor(dictionary=True)
+        # cursor.execute(query, (book_id,))
+        # result = cursor.fetchall()
+        # cursor.close()
+        # return json.loads(json.dumps(result))
+        return 0;
 
 api.add_resource(Library, "/library")
 api.add_resource(Synopsis, "/library/synopsis/<int:book_id>")
