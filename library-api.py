@@ -25,7 +25,7 @@ class Library(Resource):
             cnx = mysql.connector.connect(user='admin', password='capstone', host='pellego-db.cdkdcwucys6e.us-west-2.rds.amazonaws.com', database='pellego_database')
 
 
-        query = ("select BID, Book_Name, Author, Image_Url, Book_Url from Books")
+        query = ("select BID, Book_Name, Author, Image_Url, Book_Url, Hash_String from Books")
         cursor = cnx.cursor(dictionary=True)
 
         cursor.execute(query)
